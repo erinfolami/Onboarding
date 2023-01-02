@@ -13,15 +13,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        initializeView()
+    }
 
+    private fun initializeView() {
         val dotsIndicator = findViewById<DotsIndicator>(R.id.dots_indicator)
-
-
         viewPager = findViewById(R.id.viewPager)
         viewPagerAdapter = ViewPagerAdapter(this)
-
         viewPager.adapter = viewPagerAdapter
         dotsIndicator.attachTo(viewPager)
-
     }
 }
