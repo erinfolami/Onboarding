@@ -8,34 +8,16 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.example.onboarding.Constants.descriptionArray
+import com.example.onboarding.Constants.headArray
+import com.example.onboarding.Constants.imgArray
 
-class ViewPagerAdapter(val context: Context) : PagerAdapter() {
+class ViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
     var layoutInflater: LayoutInflater? = null
 
-    val imgArray = arrayOf(
-        R.drawable.test_image,
-        R.drawable.test_image,
-        R.drawable.test_image,
-        R.drawable.test_image
-    )
-
-    val headArray = arrayOf(
-        "Love up the seamless process",
-        "H2 test test",
-        "H3 test test",
-        "H4 test test"
-    )
-
-    val descriptionArray = arrayOf(
-        "D1 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ",
-        "D2 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ",
-        "D3 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea ",
-        "D4 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea "
-    )
-
     override fun getCount(): Int {
-      return  headArray.size
+      return headArray.size
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -47,12 +29,12 @@ class ViewPagerAdapter(val context: Context) : PagerAdapter() {
         val view = layoutInflater!!.inflate(R.layout.slider, container, false)
 
         val img = view.findViewById<ImageView>(R.id.onboarding_img)
-        val txt_head = view.findViewById<TextView>(R.id.txt_head)
-        val txt_description = view.findViewById<TextView>(R.id.txt_description)
+        val txtHead = view.findViewById<TextView>(R.id.txt_head)
+        val txtDescription = view.findViewById<TextView>(R.id.txt_description)
 
         img.setImageResource(imgArray[0])
-        txt_head.text = headArray[position]
-        txt_description.text = descriptionArray[position]
+        txtHead.text = headArray[position]
+        txtDescription.text = descriptionArray[position]
 
         container.addView(view)
         return view
